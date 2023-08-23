@@ -1,0 +1,43 @@
+.text-center {
+    text-align: left; /* Align text to the left */
+  }
+  
+  .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .title-style {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: hsl(52, 0%, 98%);
+    margin-top: 20px; /* Adjust the margin as needed */
+  }
+  
+  .title-quote {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 400;
+    color: hsl(52, 0%, 98%);
+  }
+  
+  @keyframes moveTruck {
+    0% {
+      transform: translateX(-200%); /* it set truck -200 left side & inimation start from 0%*/
+    }
+    100% {
+      transform: translateX(100%); /* it move truck at 100% point & and again set at 0 x-axis where we have truck in html if we set 0 then truck start -200 and stop on 0..it will not going to 100%*/
+    }
+  }
+  
+  #truckIcon {
+    animation: moveTruck 5s ease-in-out;
+  }
+  

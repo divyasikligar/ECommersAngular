@@ -1,0 +1,19 @@
+
+   postResponse?:any
+  dbImage?:any
+  viewimage()
+{
+  this.http.get('http://localhost:8080/getimage/' + this.id)
+      .subscribe(
+        res => {
+          this.postResponse = res;
+          this.dbImage = 'data:image/png;base64,' + this.postResponse.image;
+        }
+      );
+}
+
+
+ <div *ngIf=dbImage>
+               <img [src]="dbImage" height="100" width="200">
+           </div>
+  

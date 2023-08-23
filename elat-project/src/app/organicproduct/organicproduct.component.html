@@ -1,0 +1,282 @@
+<html>
+<head>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Dancing+Script:wght@500&family=Herr+Von+Muellerhoff&family=Lobster&family=Oswald:wght@200&family=Rubik&family=Sigmar&family=Special+Elite&family=Syncopate&display=swap" 
+rel="stylesheet">
+
+<script>
+  
+  function navigateToSection(sectionId ) {
+           
+           const section =  document.getElementsById(sectionId);
+           
+           if (section) {
+             section.scrollIntoView({ behavior: 'smooth' });
+           }
+           return false;
+         }
+ 
+ </script>
+
+</head>
+
+<body>
+
+
+<!-- Nav Bar code  -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">Organic</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav m-auto mb-2 mb-lg-0" >
+        <li class="nav-item">
+          <a class="nav-link active"  href="javascript:void()" (click)="scrollTo('main')">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="javascript:void()" (click)="scrollTo('product1')">Skin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="javascript:void()" (click)="scrollTo('about1')">Organic</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="javascript:void()" (click)="scrollToCart()">Cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="javascript:void()" (click)="scrollTo('contact')">Contact</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class=" px-2 search" type="search" placeholder="Search"  aria-label="Search"  
+        name="searchTerm" [(ngModel)]="searchTerm" (input)="filterItems()" 
+        (focus)="toggleSearchList()" (blur)="toggleSearchList()">
+        <button class="btn0" type="submit" (click)="scrollToFirstItem()">Search</button>
+       <!-- <div *ngIf="showSearchList && filteredFoodItems.length > 0" style="padding: 50px;">
+             <li *ngFor="let item of filteredFoodItems">
+              <a href="javascript:void()" (click)="scrollTo(item.sectionId)">{{item.pname}}</a>
+            </li> 
+        </div> -->
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- Secotion code -->
+
+<section class="main" id="main">
+  <div class="container py-3">
+        <div class="row py-2">
+          <div class="col-lg-7 pt-4 text-center">
+            <h1 class="h pt-2"> Love Your Skin Naturally </h1>
+            <button class="btn1 mt-3">More Tips</button>
+          </div>
+        </div>
+  </div>
+</section>
+
+<!-- Section 2 -->
+
+<section class="new m-4">
+  <div class="container py-5">
+    <div class="row justify-content-lg-evenly text-center">
+      <div class="col-lg-2">
+        <img src="/assets/face-mask.png" class="img-fluid" />
+        <h6>Face Mask</h6>
+      </div>
+      <div class="col-lg-2">
+        <img src="https://img.freepik.com/free-icon/cream_318-784580.jpg?size=626&ext=jpg&ga=GA1.1.1639725166.1675166092&semt=ais" class="img-fluid" />
+        <h6>Cream</h6>
+      </div>
+      <div class="col-lg-2">
+        <img src="/assets/skin-treatment.png" class="img-fluid" />
+        <h6>Face Cream</h6>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Skin Product Section -->
+
+<section class="product1" id="product1" name="product1" >
+       <div class="container py-4 ">
+        <div class="row py-5 ">
+          <div class="col-lg-5 m-auto text-center">
+            <h1> What's new for skin </h1>
+            <h6 style="color: red;"> Take care of your skin  </h6>
+          </div>
+        </div>
+      </div>
+        
+        <div class=" row justify-content-around img-fluid">
+          
+           <div class="col-lg-2 text-center" *ngFor="let a of skinprod">
+              <div class="card1">
+              <div class="card mb-2 card2" >
+                <div>
+                <img class=" bg-transparent rounded-start " [src]="a.safeImageUrl"    />
+              </div>
+              
+              <div class="card-body mb-2">
+              <h6>{{a.productname}}</h6>
+              <p>{{a.price}}</p>
+              <button class="btn1" (click)="submitProduct(a)">Add To Cart</button>
+            </div>
+        
+            </div>
+          </div>
+           </div>
+
+        </div>
+        
+</section>
+
+<!-- food Section -->
+
+<div class="about1"  id="about1" >
+  <div class="container ">
+       <div class="row py-5 " >
+        <div class="col-lg-8 m-auto text-center">
+          <h1>Welcome To Our Food Scoiaty</h1>
+          <h6 style="color: red;">Be Healthy Organic Food</h6>
+        </div>
+       </div> 
+           <div class="row justify-content-lg-between p-3" >
+            <div class="col-lg-3" *ngFor="let a of data">
+              <img [src]="a.safeImageUrl"
+              class="img-fluid mb-3" alt="food pic">
+              <h5>{{a.productname}}</h5>
+              <h5>{{a.price}}</h5>
+              <h5>Best Quality Product</h5>
+              <p>{{a.description}}</p>
+                 <button class="btn1" (click)="submitProduct(a)">Add To Cart</button>
+            </div>
+          
+           </div>
+          
+     </div>
+       
+  
+</div>
+
+
+<!-- Apple section -->
+
+<section class="apple ">
+  <div class="container text-white py-5">
+    <div class="row">
+      <div class="col-lg-6">
+        <h1 class="font-weight-bold py-3">Unlock Your potentail With Good Nutrion</h1>
+        <h6 style="color: white;">Be Healthy Organic Food</h6>
+        <button class="btn1 mt-3">More from us</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+
+<section class="contact py-5" id="contact">
+  <div class="container py-5 ">
+    <div class="row">
+      <div class="col-lg-5 m-auto text-center">
+        <h1>Contact Us</h1>
+        <h6 style="color: red;">Always Be In Touch With Us</h6>
+      </div>
+    </div>
+    <div class="row py-5">
+      <div class="col-lg-9 m-auto">
+        <div class="row">
+          <div class="col-lg-4">
+            <h6>LOCATION</h6>
+            <p>Switzerland 0911 First Street DC</p>
+          
+          
+            <h6>PHONE</h6>
+            <p>0140-229839</p>
+         
+          
+            <h6>EMAIL</h6>
+            <p>ds@gmail.com</p>
+        </div>
+
+        <div class="col-lg-7">
+            <div class="row justify-content-lg-between">
+              <div class="col-lg-4">
+                <input type="text" class="form-control bg-light" placeholder="First Name" id="firstname">
+              </div>
+              <div class="col-lg-4">
+                <input type="text" class="form-control bg-light" placeholder="Last Name" id="lastname">
+              </div>
+            </div>
+
+            <div class="row ">
+              <div class="col-lg-12 py-3">
+                <textarea name="" class="form-control bg-light" placeholder="Enter Your Name"
+                              id="" cols="30" rows="5" >
+               </textarea>
+               <button class="btn1 m-5 my-center" id="submitBtn"> Submit</button>
+              </div>
+            </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- Customer care -->
+
+<section class="news py-5">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-9 m-auto text-center">
+        <h1>Join Our Secret Society</h1>
+        <input type="text" id="CustomerEmail" class="px-3" placeholder="Enter your Email">
+        <button class="btn2" id="submitBtn2">Submit</button>
+      </div>
+    </div>
+    <div class="row pt-5">
+      <div class="col-lg-11 m-auto">
+           <div class="row">
+                 <div class="col-lg-3 py-3">
+                  <h5 class="pb-3">CUSTOMER CARE</h5>
+                  <P>REGULAR</P>
+                  <p>On Time</p>
+                 </div>
+                 <div class="col-lg-3 py-3">
+                  <h5 class="pb-3">CUSTOMER CARE</h5>
+                  <P>REGULAR</P>
+                  <p>On Time</p>
+                 </div>
+                 <div class="col-lg-3 py-3">
+                  <h5 class="pb-3" >CUSTOMER CARE</h5>
+                  <P>REGULAR</P>
+                  <p>On Time</p>
+                 </div>
+                 <div class="col-lg-3 py-3">
+                  <h5 class="pb-3">CUSTOMER CARE</h5>
+                  <span class="p-3"><i class="fab fa-facebook-f" ></i></span>
+                  <span class="p-3"><i class="fab fa-twitter" ></i></span>
+                  <span class="p-3"><i class="fab fa-google" ></i></span>
+                  <p>On Time</p>
+                 </div>
+           </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</body>
+</html>

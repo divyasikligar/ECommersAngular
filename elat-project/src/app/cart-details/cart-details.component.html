@@ -1,0 +1,14 @@
+<div class="row justify-content-lg-between p-3" >
+    <div class="col-lg-3" *ngFor="let a of data">
+      <img [src]="a.safeImageUrl"
+      class="img-fluid mb-3" alt=" pic">
+      <h5>{{a.cartID}}</h5>
+      <h5>{{a.price}}</h5>
+      <h5>{{a.productname}}</h5>
+      <!-- <h5>Best Quality Product</h5> -->
+      <!-- <p>{{a.description}}</p> -->
+      <button (click)="submitorder(a)">Order</button>
+        
+    </div>
+  
+   </div>

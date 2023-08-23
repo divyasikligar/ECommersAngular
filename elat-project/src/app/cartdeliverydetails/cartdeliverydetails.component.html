@@ -1,0 +1,51 @@
+
+<!-- Nav Bar code  -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand">Organic</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto mb-2 mb-lg-0" style="margin-left: auto;">
+        <li class="nav-item">
+        <li class="nav-item">
+          <a class="nav-link active"  href="organic" >Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="organic">Skin</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link active" href="cartdelivery" >Cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="organic">Contact</a>
+        </li>
+      </ul>
+     
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+<div class="container">
+  <div class="row p-3">
+    <div class="col-12 col-lg-11" *ngFor="let a of data; let i = index;">
+      <div class="item-container ">
+        <div class="item-image">
+          <img [src]="a.safeImageUrl" class="img-fluid" alt="pic">
+        </div>
+        <div class="item-details">
+          <h5>{{a.productname}}</h5>
+          <h5>{{a.price}}</h5>
+          <h5>{{a.pincode}}</h5>
+          <h5>{{a.firstname}}</h5>
+          <h5>{{a.email}}</h5>
+          <h5>{{a.address}}</h5>
+          <h5>{{a.city}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
