@@ -1,0 +1,15 @@
+com\registration\registration\RegistrationApplication.class
+com\registration\registration\repository\cdRepo.class
+com\registration\registration\repository\FoodRepository.class
+com\registration\registration\model\cd.class
+com\registration\registration\repository\RegistrationRepository.class
+com\registration\registration\repository\CartRepository.class
+com\registration\registration\model\cartdetails.class
+com\registration\registration\repository\DeliveryInfoRepository.class
+com\registration\registration\model\deliveryinformation.class
+com\registration\registration\service\RegistrationService.class
+com\registration\registration\repository\SkinRepository.class
+com\registration\registration\controller\ResgistrationController.class
+com\registration\registration\model\foodproduct.class
+com\registration\registration\model\User.class
+com\registration\registration\model\skinproducts.class
